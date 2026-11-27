@@ -1,0 +1,129 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car</title>
+    <style>
+      html {
+  height: 100%;
+  /* Градиент неба: от голубого к светло-голубому */
+  background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 60%, #a8edea 60%);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+        body {
+    margin: 0;
+    overflow: hidden; 
+    background: linear-gradient(to bottom, #87CEEB 70%, #90EE90 70%); 
+  }
+
+  .road {
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    height: 60px;
+    background: #555;
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+  }
+
+
+  .road::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transform: translateY(-50%);
+    background: repeating-linear-gradient(
+      to right,
+      #ffd700 0,
+      #ffd700 40px,
+      transparent 40px,
+      transparent 80px
+    );
+  }
+
+  .car {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 200px;  
+    height: 70px;
+    animation: drive 4s linear forwards; 
+    z-index: 10;
+  }
+
+
+  .car::before {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background: #e74c3c; 
+    border-radius: 20px 40px 10px 10px;
+    box-shadow: inset -10px -5px 0 rgba(0,0,0,0.2); 
+  }
+
+  .car::after {
+    content: '';
+    position: absolute;
+    bottom: 50px;
+    left: 40px;
+    width: 90px;
+    height: 30px;
+    background: #c0392b; 
+    border-radius: 20px 20px 0 0;
+    background-image: linear-gradient(to right, transparent 10%, #3498db 10%, #3498db 45%, transparent 45%, transparent 55%, #3498db 55%, #3498db 90%, transparent 90%);
+  }
+
+  .wheel {
+    position: absolute;
+    bottom: -10px;
+    width: 30px;
+    height: 30px;
+    background: #222;
+    border-radius: 50%;
+    border: 4px solid #999; 
+    z-index: 11;
+  }
+
+  .wheel.front {
+    right: 30px;
+  }
+
+  .wheel.back {
+    left: 30px;
+  }
+
+
+  @keyframes drive {
+    0% {
+      transform: translateX(-210px); 
+    }
+    100% {
+    
+      transform: translateX(calc(100vw - 250px)); 
+    }
+  }
+    </style>
+  </head>
+  <body>
+     <div class="road">
+  <div class="car">
+    <div class="wheel front"></div>
+    <div class="wheel back"></div>
+  </div>
+</div>
+  </body>
+  </html>
